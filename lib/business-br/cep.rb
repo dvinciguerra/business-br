@@ -1,6 +1,19 @@
 module Business::BR
   class CEP
-    attr_accessor :cep, :provider
+
+    @@regions = [
+      ['SP'],
+      ['SP'],
+      ['RJ', 'ES'],
+      ['MG'],
+      ['BA', 'SE'],
+      ['PE', 'AL', 'PB', 'RN'],
+      ['CE', 'PI', 'MA', 'PA', 'AM', 'AC', 'AP', 'RR'],
+      ['DF', 'GO', 'TO', 'MT', 'MG', 'RO'],
+      ['PR', 'SC'],
+      ['RS'],
+    ]
+      
 
     def initialize(opts = {})
       @opts = opts || {}
@@ -27,20 +40,7 @@ module Business::BR
 
     def region(cep)
       raise Exception.new('This cep is not valid') unless valid?(cep)
-      regions = [
-        ['SP'],
-        ['SP'],
-        ['RJ', 'ES'],
-        ['MG'],
-        ['BA', 'SE'],
-        ['PE', 'AL', 'PB', 'RN'],
-        ['CE', 'PI', 'MA', 'PA', 'AM', 'AC', 'AP', 'RR'],
-        ['DF', 'GO', 'TO', 'MT', 'MG', 'RO'],
-        ['PR', 'SC'],
-        ['RS'],
-      ]
-      
-      regions[cep[0].to_i]
+      @@regions[cep[0].to_i]
     end
 
 
