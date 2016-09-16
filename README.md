@@ -1,8 +1,8 @@
-# Business::Br
+# Business::BR
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/business/br`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem is a namespace of brazilian documents, ids and currencies validations that provide you simple
+way for make validations in your ruby application.
 
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
@@ -22,15 +22,71 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+
+### For CEP
+```ruby
+require 'business-br'
+
+cep = '13330-000'
+validator = Business::BR::CEP.new
+
+# turns from '13330-000' into '13330000'
+cep = validator.normalize(cep)
+
+
+# turns from '13330000' into '13330-000'
+cep = validator.format(cep)
+
+# getting cep region
+cep_region = validator.region(cep) # => ['SP']
+
+# getting cep type
+cep_type = validator.type(cep) # => 'LOGRADOURO'
+
+
+# check if cep is valid
+if cpf_validator.valid? '00000asd'
+  puts 'This CEP is valid'
+else 
+  puts 'This CEP is not valid... please try again!'
+end
+```
+
+
+### For CPF
+```ruby
+require 'business-br'
+
+cpf = '111.111.111-11'
+validator = Business::BR::CPF.new
+
+# turns from '111.111.111-11' into '11111111111'
+cpf = validator.normalize(cpf)
+
+# turns from '11111111111' into '111.111.111-11'
+cpf = validator.format(cpf)
+
+
+# check if cpf is valid
+if cpf_validator.valid? '111.111.111-11'
+  puts 'This CPF is valid'
+else 
+  puts 'This CPF is not valid... please try again!'
+end
+```
+
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repon, run bundle install to resolve dependencies and then run `rake spec` to run the tests.
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/business-br.
+Bug reports and pull requests are welcome on GitHub at https://github.com/dvinciguerra/business-br.
 
+
+## Authors
+
+Daniel Vinciguerra <daniel.vinciguerra@bivee.com.br>
