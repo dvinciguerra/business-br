@@ -1,5 +1,7 @@
 # Business::BR
 
+[![Gem Version](https://badge.fury.io/rb/business-br.svg)](https://badge.fury.io/rb/business-br)
+
 This gem is a namespace of brazilian documents, ids and currencies validations that provide you simple
 way for make validations in your ruby application.
 
