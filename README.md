@@ -24,6 +24,9 @@ Or install it yourself as:
 
 
 ### For CEP
+
+Using class CEP and validations methods:
+
 ```ruby
 require 'business-br'
 
@@ -45,7 +48,7 @@ cep_type = validator.type(cep) # => 'LOGRADOURO'
 
 
 # check if cep is valid
-if cpf_validator.valid? '00000asd'
+if validator.valid? '00000asd'
   puts 'This CEP is valid'
 else 
   puts 'This CEP is not valid... please try again!'
@@ -54,6 +57,9 @@ end
 
 
 ### For CPF
+
+Using class CPF and validations methods:
+
 ```ruby
 require 'business-br'
 
@@ -68,7 +74,7 @@ cpf = validator.format(cpf)
 
 
 # check if cpf is valid
-if cpf_validator.valid? '111.111.111-11'
+if validator.valid? '111.111.111-11'
   puts 'This CPF is valid'
 else 
   puts 'This CPF is not valid... please try again!'
