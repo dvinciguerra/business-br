@@ -33,7 +33,11 @@ module Business::BR
 
 
     def normalize(cep)
-      raise Exception.new('This cep is not valid') unless valid?(cep)
+      "#{$1}#{$2}" if cep =~ /^(\d{5})-?(\d{3})$/
+    end
+
+    
+    def format(cep)
       "#{$1}-#{$2}" if cep =~ /^(\d{5})-?(\d{3})$/
     end
     
@@ -45,10 +49,8 @@ module Business::BR
 
 
     def type(cep)
-      raise Exception.new('This cep is not valid') unless valid?(cep)
-
       cep = normalize(cep)
-      suffix = cep[6..8].to_i
+      suffix = cep.slice(5, 3).to_i
       case
         when suffix < 900 then 'LOGRADOURO'
         when suffix < 960 then 'ESPECIAL'

@@ -41,8 +41,15 @@ describe Business::BR::CEP do
 
 
   context '#normalize' do
+    it 'does this method remove dash' do
+      expect(cep.normalize('12345-678')).to eq '12345678'
+    end
+  end
+
+
+  context '#format' do
     it 'does this method add dash' do
-      expect(cep.normalize('12345678')).to eq '12345-678'
+      expect(cep.format('12345678')).to eq '12345-678'
     end
   end
 
