@@ -1,6 +1,5 @@
 language: ruby
 sudo: false
-cache: bundler
 
 rvm:
   - 2.3.1
@@ -13,9 +12,11 @@ rvm:
   - jruby-head
   - ruby-head
 
+before_install:
+  - gem install bundler
 
-bundler_args: --without test --jobs 3 --retry 3    
-
+bundler_args: --without test --jobs 3 --retry 3
 
 before_script:
   - bundle update
+
