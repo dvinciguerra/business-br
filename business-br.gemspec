@@ -6,6 +6,7 @@ require 'business-br/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "business-br"
+  spec.license       = 'MIT'
   spec.version       = Business::BR::VERSION
   spec.authors       = ["Daniel Vinciguerra"]
   spec.email         = ["daniel.vinciguerra@bivee.com.br"]
