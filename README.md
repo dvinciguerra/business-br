@@ -86,6 +86,32 @@ end
 ```
 
 
+### For CNPJ
+
+Using class CNPJ and validations methods:
+
+```ruby
+require 'business-br'
+
+cnpj = '11.111.111/0001-11'
+validator = Business::BR::CNPJ.new
+
+# turns from '11.111.111/0001-11' into '11111111000111'
+cnpj = validator.normalize(cnpj)
+
+# turns from '11111111000111' into '11.111.111/0001-11'
+cnpj = validator.format(cnpj)
+
+
+# check if cnpj is valid
+if validator.valid? '11.111.111/0001-11'
+  puts 'This CNPJ is valid'
+else 
+  puts 'This CNPJ is not valid... please try again!'
+end
+```
+
+
 ## Development
 
 After checking out the repon, run bundle install to resolve dependencies and then run `rake spec` to run the tests.
