@@ -13,3 +13,4 @@ end
 require 'business-br'
 require 'business-br/cep'
 require 'business-br/cpf'
+require 'business-br/cnpj'
