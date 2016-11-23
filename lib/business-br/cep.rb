@@ -1,3 +1,5 @@
+require_relative './cep/providers'
+
 module Business::BR
   class CEP
 
@@ -59,6 +61,15 @@ module Business::BR
         else 'CAIXAPOSTAL';
       end
     end
-    
+
+    def search_by(cep, provider:'Postmon')
+      if cep_provider = Business::BR::CEP::Providers.get_provider(provider)
+        return cep_provider.search_by(cep)
+      end
+      nil
+    end
+
   end
 end
+
+

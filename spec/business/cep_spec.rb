@@ -72,4 +72,21 @@ describe Business::BR::CEP do
     end
   end
 
+
+  context '#search_by' do
+    let(:api_response) do
+      '{"complemento": "de 618 a 1188 - lado par", "bairro": "Jardim Paulista", "cidade": "S\u00e3o Paulo", "logradouro": "Alameda Ja\u00fa", "estado_info": {"area_km2": "248.222,362", "codigo_ibge": "35", "nome": "S\u00e3o Paulo"}, "cep": "01420002", "cidade_info": {"area_km2": "1521,11", "codigo_ibge": "3550308"}, "estado": "SP"}'
+    end
+
+    it 'getting cep informations' do
+      postmon_mock
+
+      cep = subject.search_by('01420002')
+
+      expect(cep[:zipcode]).not_to be_nil
+      expect(cep[:zipcode]).to eq '01420002'
+      expect(cep[:uf]).to eq "SP"
+    end
+  end
+
 end
