@@ -57,6 +57,14 @@ if validator.valid? '00000asd'
 else 
   puts 'This CEP is not valid... please try again!'
 end
+
+# getting cep information
+cep = Business::BR::CEP.new 
+if infor = cep.search_by('12345678') # default provider is Postmon
+  puts "CEP: #{infor}"
+else
+  puts "NOT FOUND"
+end
 ```
 
 
