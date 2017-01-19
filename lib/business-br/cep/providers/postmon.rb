@@ -1,3 +1,5 @@
+require 'json'
+
 module Business
   module BR
     class CEP
@@ -6,13 +8,18 @@ module Business
 
           def search_by(cep)
             @zipcode = cep
-            response = RestClient.get "http://api.postmon.com.br/v1/cep/#{@zipcode}"
-            parse_response(response)
+            begin
+             response = RestClient.get "http://api.postmon.com.br/v1/cep/#{@zipcode}"
+             return parse_response(response.body)
+            rescue RestClient::ExceptionWithResponse => e
+              puts e.response if ENV['BUSINESS-BR_DEBUG']
+              return nil
+            end
           end
 
           private
             def parse_response(response)
-              json = decode_json(response)
+              json = JSON.parse(response, symbolize_names: true)
               create_entity(
                 json, extract: {
                   zipcode: :cep, 
