@@ -9,13 +9,19 @@ module Business
 
         def self.get_provider(provider)
           return nil unless provider
-          begin
-            if provider_class = eval("Business::BR::CEP::Providers::#{provider}")
-              return provider_class.new
-            end
-          rescue
-            return nil
-          end
+
+          provider_instance(provider)
+        end
+
+        def self.provider_instance(provider)
+          return const_get(provider).new if is_provider?(provider)
+
+          warn("Provider implementation: `#{provider}` is not found") &&
+            nil
+        end
+
+        def self.is_provider?(provider)
+          constants.include?(provider.to_sym)
         end
 
       end # Providers
