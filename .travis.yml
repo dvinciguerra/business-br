@@ -17,9 +17,9 @@ matrix:
     - rvm: jruby-head
 
 before_install:
-  - gem install bundler
+  - gem install bundler -v 1.17.3
 
-bundler_args: 
+bundler_args:
   --without test --jobs 3 --retry 3
 
 before_script:
