@@ -21,12 +21,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
   spec.required_ruby_version = '>= 2.0.0'
 
-  # secirity
-  spec.cert_chain = ['certs/dvinciguerra.pem']
-  if $PROGRAM_NAME =~ /gem\z/
-    spec.signing_key = File.expand_path('~/.ssh/gem-private_key.pem')
-  end
-
   # dependency
   spec.add_development_dependency 'bundler', '~> 2.1'
   spec.add_development_dependency 'rake', '~> 12.3'
