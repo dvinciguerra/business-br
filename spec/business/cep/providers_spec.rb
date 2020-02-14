@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Business::BR::CEP::Providers do
@@ -19,7 +21,7 @@ describe Business::BR::CEP::Providers do
   end
 
   context 'test default providers' do
-    let(:cep){ '01420002' }
+    let(:cep) { '01420002' }
 
     it 'test provider postmon' do
       postmon_mock
@@ -38,7 +40,4 @@ describe Business::BR::CEP::Providers do
       expect(response[:uf]).to eq 'SP'
     end
   end
-
-
-
 end

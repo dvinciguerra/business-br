@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Business::BR::CPF do
   subject(:cpf) do
     Business::BR::CPF.new
   end
-
 
   context 'constructor' do
     it 'does class of Business::BR::CPF' do
@@ -24,7 +25,6 @@ describe Business::BR::CPF do
     end
   end
 
-
   context '#validate' do
     it 'does cpf is valid' do
       expect(cpf.validate('111a1111111')).to be false
@@ -33,5 +33,4 @@ describe Business::BR::CPF do
       expect(cpf.validate('178.863.670-81')).to be true
     end
   end
-
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Business::BR::CEP do
@@ -5,13 +7,11 @@ describe Business::BR::CEP do
     Business::BR::CEP.new
   end
 
-
   context 'constructor' do
     it 'does class of Business::BR::CEP' do
       expect(cep.class.to_s).to eq 'Business::BR::CEP'
     end
   end
-
 
   context '#validate' do
     it 'does cep is valid without dash' do
@@ -31,14 +31,13 @@ describe Business::BR::CEP do
     end
 
     it 'does cep is valid with valid? method too' do
-      expect(cep.valid? '88220000').to be true
+      expect(cep.valid?('88220000')).to be true
     end
 
     it 'does cep is not valid with valid? method too' do
-      expect(cep.valid? 'abcdefgh').to be false
+      expect(cep.valid?('abcdefgh')).to be false
     end
   end
-
 
   context '#normalize' do
     it 'does this method remove dash' do
@@ -46,32 +45,28 @@ describe Business::BR::CEP do
     end
   end
 
-
   context '#format' do
     it 'does this method add dash' do
       expect(cep.format('12345678')).to eq '12345-678'
     end
   end
 
-
   context '#region' do
     it 'does return correct cep region' do
-      expect(cep.region('88220000')).to eq ['PR', 'SC']
+      expect(cep.region('88220000')).to eq %w[PR SC]
       expect(cep.region('13330000')).to eq ['SP']
-      expect(cep.region('20241180')).to eq ['RJ', 'ES']
+      expect(cep.region('20241180')).to eq %w[RJ ES]
 
       # using dash
-      expect(cep.region('20241-180')).to eq ['RJ', 'ES']
+      expect(cep.region('20241-180')).to eq %w[RJ ES]
     end
   end
-
 
   context '#type' do
     it 'does return correct cep type' do
       expect(cep.type('88220000')).to eq 'LOGRADOURO'
     end
   end
-
 
   context '#search_by' do
     let(:api_response) do
@@ -85,8 +80,7 @@ describe Business::BR::CEP do
 
       expect(cep[:zipcode]).not_to be_nil
       expect(cep[:zipcode]).to eq '01420002'
-      expect(cep[:uf]).to eq "SP"
+      expect(cep[:uf]).to eq 'SP'
     end
   end
-
 end

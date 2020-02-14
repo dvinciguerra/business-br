@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rest-client'
 
 module Business
@@ -8,24 +10,24 @@ module Business
           attr_accessor :zipcode
 
           protected
-            # response entity
-            def create_entity(json, extract:{})
-              json = json.class == String ? decode_json(json) : json
 
-              # getting informations
-              extracted = Hash.new
-              extract.each do |key, value|
-                extracted[key] = (value.class == Symbol ? json[value] : value)
-              end
+          # response entity
+          def create_entity(json, extract: {})
+            json = json.class == String ? decode_json(json) : json
 
-              extracted
+            # getting informations
+            extracted = {}
+            extract.each do |key, value|
+              extracted[key] = (value.class == Symbol ? json[value] : value)
             end
 
-            # decode json
-            def decode_json(str)
-              JSON.parse(str, symbolize_names: true)
-            end
+            extracted
+          end
 
+          # decode json
+          def decode_json(str)
+            JSON.parse(str, symbolize_names: true)
+          end
         end
       end # Providers
     end # CEP
