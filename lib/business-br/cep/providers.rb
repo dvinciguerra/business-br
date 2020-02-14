@@ -12,9 +12,8 @@ module Business
           return nil unless provider
 
           begin
-            if provider_class = eval("Business::BR::CEP::Providers::#{provider}")
-              provider_class.new
-            end
+            provider_class = Business::BR::CEP::Providers.const_get(provider)
+            provider_class.new if provider_class
           rescue StandardError
             nil
           end
