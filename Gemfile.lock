@@ -22,7 +22,7 @@ GEM
     mime-types-data (3.2016.0521)
     netrc (0.11.0)
     public_suffix (2.0.4)
-    rake (10.4.2)
+    rake (12.3.3)
     rest-client (2.0.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
@@ -55,7 +55,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.12)
   business-br!
-  rake (~> 10.0)
+  rake (~> 12.3)
   rspec (~> 3.0)
   webmock (~> 2.1, >= 2.1.0)
 
