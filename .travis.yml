@@ -1,5 +1,8 @@
+env:
+  global:
+    - COVERAGE=true
+
 language: ruby
-sudo: false
 
 rvm:
   - 2.7
@@ -14,4 +17,13 @@ before_install:
 bundler_args: --jobs 3 --retry 3
 
 before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
   - bundle update
+
+script:
+  - bundle exec rspec
+
+after_script:
+  - ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $TRAVIS_TEST_RESULT
