@@ -34,7 +34,7 @@ Gem::Specification.new do |spec|
 
   # dependency
   spec.add_development_dependency 'bundler',    '~> 2.1'
-  spec.add_development_dependency 'rake',       '~> 12.3'
+  spec.add_development_dependency 'rake',       '~> 13.0'
   spec.add_development_dependency 'rspec',      '~> 3.0'
   spec.add_development_dependency 'simplecov',  '~> 0.18'
   spec.add_development_dependency 'webmock',    '>= 2.1.0', '~> 3.8'
