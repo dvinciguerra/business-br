@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'json'
-
 module Business
   module BR
     class CEP
@@ -10,9 +8,9 @@ module Business
           def search_by(cep)
             @zipcode = cep
             begin
-              response = RestClient.get "http://api.postmon.com.br/v1/cep/#{@zipcode}"
+              response = Faraday.get("http://api.postmon.com.br/v1/cep/#{@zipcode}")
               parse_response(response.body)
-            rescue RestClient::ExceptionWithResponse => e
+            rescue Faraday::ClientError => e
               puts e.response if ENV['BUSINESS-BR_DEBUG']
               nil
             end

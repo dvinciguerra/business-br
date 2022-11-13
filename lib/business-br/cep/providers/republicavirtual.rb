@@ -7,8 +7,11 @@ module Business
         class RepublicaVirtual < Base
           def search_by(cep)
             @zipcode = cep
-            response = RestClient.get "http://cep.republicavirtual.com.br/web_cep.php?cep=#{@zipcode}&formato=json"
-            parse_response(response)
+            response = Faraday.get("http://cep.republicavirtual.com.br/web_cep.php?cep=#{@zipcode}&formato=json")
+              parse_response(response.body)
+          rescue Faraday::ClientError => e
+            puts e.response if ENV['BUSINESS-BR_DEBUG']
+            nil
           end
 
           private
