@@ -12,11 +12,11 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Daniel Vinciguerra']
   spec.email         = ['daniel.vinciguerra@bivee.com.br']
 
-  spec.summary       = %w[
+  spec.summary       = %q[
     Classes for validations and conversions to use in brazilian ruby projects.
   ]
 
-  spec.description = %w[
+  spec.description = %q[
     Business::BR is a namespace to place all validations like CPF CNPJ CEP and
     some other things to be used in a brazilian ruby project.
   ]
