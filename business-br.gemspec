@@ -12,11 +12,11 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Daniel Vinciguerra']
   spec.email         = ['daniel.vinciguerra@bivee.com.br']
 
-  spec.summary       = %w[
+  spec.summary       = %q[
     Classes for validations and conversions to use in brazilian ruby projects.
   ]
 
-  spec.description = %w[
+  spec.description = %q[
     Business::BR is a namespace to place all validations like CPF CNPJ CEP and
     some other things to be used in a brazilian ruby project.
   ]
@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
   spec.bindir        = 'exe'
   spec.require_paths = ['lib']
 
-  spec.required_ruby_version = '>= 2.4'
+  spec.required_ruby_version = '>= 2.7'
 
   # dependency
   spec.add_development_dependency 'bundler',    '~> 2.1'
@@ -40,6 +40,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'webmock', '~> 3.8'
 
   spec.add_dependency 'faraday', '~> 2.6'
-  spec.add_dependency 'rest-client', '~> 2.0'
+
   spec.metadata['rubygems_mfa_required'] = 'true'
 end
