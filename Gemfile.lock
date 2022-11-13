@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    business-br (0.10.0)
+    business-br (0.12.0)
       faraday (~> 2.6)
       rest-client (~> 2.0)
 
