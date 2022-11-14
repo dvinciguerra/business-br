@@ -2,6 +2,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/business-br.svg)](https://badge.fury.io/rb/business-br)
 [![Build Status](https://travis-ci.org/dvinciguerra/business-br.svg?branch=master)](https://travis-ci.org/dvinciguerra/business-br)
+[![Ruby](https://github.com/dvinciguerra/business-br/actions/workflows/ruby.yml/badge.svg)](https://github.com/dvinciguerra/business-br/actions/workflows/ruby.yml)
 [![Code Climate](https://codeclimate.com/github/dvinciguerra/business-br/badges/gpa.svg)](https://codeclimate.com/github/dvinciguerra/business-br)
 
 This gem is a namespace of brazilian documents, ids and currencies validations that provide you simple
